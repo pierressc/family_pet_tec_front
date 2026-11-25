@@ -545,6 +545,11 @@ export default function App() {
     );
   };
 
+  const handleClearSelectedFilters = () => {
+    setSelectedCategories([]);
+    setSelectedTags([]);
+  };
+
   const handleClearFilters = () => {
     setSearchQuery('');
     setSelectedCategories([]);
@@ -981,6 +986,7 @@ export default function App() {
             onToggleTag={handleToggleTag}
             sortBy={sortBy}
             onSortChange={setSortBy}
+            onClearSelectedFilters={handleClearSelectedFilters}
             onClearFilters={handleClearFilters}
             onOpenDetail={handleOpenDetail}
             onOpenSaveModal={handleOpenSaveModal}
