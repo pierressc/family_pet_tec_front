@@ -1,0 +1,800 @@
+[
+  {
+    "id": "espaco-cultural-jose-lins-do-rego",
+    "nome": "Espaço Cultural José Lins do Rêgo",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Tambauzinho",
+    "endereco": "Rua Abdias Gomes de Almeida, 800 — Tambauzinho, João Pessoa/PB",
+    "horario": "Seg a Dom: 06h00 às 22h00",
+    "imagem": "espaco-cultural.jpg",
+    "descricao": "Complexo cultural público com amplas rampas internas, planetário, biblioteca, gibiteca e áreas cobertas planas para circulação segura de famílias, idosos e cadeirantes.",
+    "tags": {
+      "infantil": ["Área Infantil Segura", "Trocador Acessível"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Piso Tátil / Sinalização", "Circulação Ampla", "Assentos Confortáveis"],
+      "sensorial": ["Área Reservada / Calma", "Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Área Coberta Permitida"]
+    },
+    "vitrine": [
+      {
+        "nome": "Planetário e Biblioteca Juarez da Gama Batista",
+        "descricao": "Visitação cultural e educativa com programação regular para crianças e famílias.",
+        "faixaPreco": "Entrada gratuita / sob consulta",
+        "favoritoDaCasa": true,
+        "imagem": "planetario-biblioteca.jpg"
+      },
+      {
+        "nome": "Gibiteca Henfil e Galeria de Arte",
+        "descricao": "Espaço climatizado de leitura e exposições com circulação nivelada.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "galeria-teatro.jpg"
+      },
+      {
+        "nome": "Teatro Paulo Pontes e Cinema Banguê",
+        "descricao": "Programação cultural com assentos reservados para mobilidade reduzida.",
+        "faixaPreco": "Entrada gratuita / sob consulta",
+        "favoritoDaCasa": false,
+        "imagem": "galeria-teatro.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://funesc.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-ec-1",
+        "autor": "Visitante de Tambauzinho",
+        "data": "2026-11-12",
+        "pilares": { "infantil": 5, "acessibilidade": 5, "pet": 3, "atendimento": 4 },
+        "comentario": "Rampas largas sem degraus no salão principal e banheiros adaptados sinalizados. Ótima opção cultural gratuita para ir com crianças e avós."
+      },
+      {
+        "id": "av-ec-2",
+        "autor": "Família Costa",
+        "data": "2026-11-04",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 3, "atendimento": 5 },
+        "comentario": "A biblioteca oferece área silenciosa para pausas sensoriais e a equipe da recepção orientou sobre o acesso térreo."
+      }
+    ]
+  },
+  {
+    "id": "estacao-cabo-branco",
+    "nome": "Estação Cabo Branco - Ciência, Cultura e Artes",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Altiplano Cabo Branco",
+    "endereco": "Av. João Cirilo da Silva, s/n — Altiplano Cabo Branco, João Pessoa/PB",
+    "horario": "Ter a Sex: 09h00 às 18h00 | Sáb e Dom: 10h00 às 18h00",
+    "imagem": "estacao-cabo-branco.jpg",
+    "descricao": "Centro público de ciência, cultura e artes projetado com rampas acessíveis, elevadores, mirante panorâmico e exposições interativas para todas as idades.",
+    "tags": {
+      "infantil": ["Área Infantil Segura", "Trocador Acessível"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Piso Tátil / Sinalização", "Circulação Ampla", "Assentos Confortáveis"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Área Reservada / Calma", "Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio"]
+    },
+    "vitrine": [
+      {
+        "nome": "Torre Mirante e Exposições Científicas",
+        "descricao": "Acesso por elevador e rampas com vista panorâmica da orla de João Pessoa.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "planetario-biblioteca.jpg"
+      },
+      {
+        "nome": "Oficinas Educativas para Famílias",
+        "descricao": "Atividades culturais e científicas aos finais de semana mediante agenda pública.",
+        "faixaPreco": "Entrada gratuita / sob consulta",
+        "favoritoDaCasa": true,
+        "imagem": "oficina-infantil.jpg"
+      },
+      {
+        "nome": "Auditório e Jardins Externos",
+        "descricao": "Áreas abertas ventiladas com bancos para descanso de pessoas idosas.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": false,
+        "imagem": "parque-caminhada.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://www.joaopessoa.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-ecb-1",
+        "autor": "Cuidadora de Manaíra",
+        "data": "2026-11-15",
+        "pilares": { "infantil": 5, "acessibilidade": 5, "pet": 4, "atendimento": 5 },
+        "comentario": "Circulação excelente para cadeira de rodas, piso regular e salas expositivas climatizadas com pouco ruído."
+      }
+    ]
+  },
+  {
+    "id": "centro-cultural-sao-francisco",
+    "nome": "Centro Cultural São Francisco",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Centro",
+    "endereco": "Praça São Francisco, s/n — Centro, João Pessoa/PB",
+    "horario": "Ter a Sáb: 09h30 às 17h00 | Dom: 09h00 às 15h00",
+    "imagem": "centro-cultural-sao-francisco.jpg",
+    "descricao": "Conjunto arquitetônico histórico barroco com visitas guiadas educativas, pátios silenciosos e bancos sombreados para contemplação cultural tranquila.",
+    "tags": {
+      "infantil": ["Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Assentos Confortáveis"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Iluminação Controlada", "Área Reservada / Calma"],
+      "pet": []
+    },
+    "vitrine": [
+      {
+        "nome": "Visita Guiada ao Conjunto Barroco",
+        "descricao": "Percurso histórico pelo claustro, igreja e jardins internos com mediação cultural.",
+        "faixaPreco": "Sob consulta (isenções legais)",
+        "favoritoDaCasa": true,
+        "imagem": "conjunto-barroco.jpg"
+      },
+      {
+        "nome": "Museu de Arte Sacra e Claustro",
+        "descricao": "Ambientes silenciosos com temperatura amena e painéis informativos.",
+        "faixaPreco": "Incluso na visitação",
+        "favoritoDaCasa": false,
+        "imagem": "galeria-teatro.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://www.joaopessoa.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-ccsf-1",
+        "autor": "Visitante do Centro",
+        "data": "2026-11-08",
+        "pilares": { "infantil": 3, "acessibilidade": 4, "pet": 2, "atendimento": 5 },
+        "comentario": "Ambiente muito silencioso e acolhedor. Como é patrimônio histórico, há trechos de calçamento antigo, mas os guias auxiliam no percurso mais plano."
+      }
+    ]
+  },
+  {
+    "id": "parque-solon-de-lucena",
+    "nome": "Parque Sólon de Lucena",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Centro",
+    "endereco": "Av. Parque Sólon de Lucena — Centro, João Pessoa/PB",
+    "horario": "Diariamente: 05h00 às 22h00",
+    "imagem": "parque-solon-de-lucena.jpg",
+    "descricao": "Cartão-postal revitalizado no coração da cidade com anel de caminhada plano, ciclovia, pista de skate, praças infantis e passeio aberto para tutores com cães na guia.",
+    "tags": {
+      "infantil": ["Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Piso Tátil / Sinalização", "Circulação Ampla", "Assentos Confortáveis"],
+      "sensorial": [],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Aceita Pet Porte Grande"]
+    },
+    "vitrine": [
+      {
+        "nome": "Circuito de Caminhada ao Redor da Lagoa",
+        "descricao": "Calçadão nivelado com piso tátil, bancos sombreados e boa visibilidade.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "parque-caminhada.jpg"
+      },
+      {
+        "nome": "Parquinhos Infantis e Praça de Convivência",
+        "descricao": "Equipamentos públicos de lazer ao ar livre para famílias.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "parque-infantil.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://www.joaopessoa.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-psl-1",
+        "autor": "Morador da Torre",
+        "data": "2026-11-10",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 5, "atendimento": 4 },
+        "comentario": "Ótimo piso tátil e rampas nas travessias. Passeio amplo para caminhar com idosos e cães de todos os portes no início da manhã ou fim da tarde."
+      }
+    ]
+  },
+  {
+    "id": "jardim-botanico-benjamin-maranhao",
+    "nome": "Jardim Botânico Benjamin Maranhão",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Torre",
+    "endereco": "Av. Dom Pedro II, s/n — Torre, João Pessoa/PB",
+    "horario": "Ter a Sáb: 08h00 às 16h30",
+    "imagem": "jardim-botanico.jpg",
+    "descricao": "Unidade de conservação de Mata Atlântica com trilhas monitoradas, som natural da floresta e ambiente de baixo ruído urbano. Não permite entrada de animais domésticos para proteção da fauna silvestre.",
+    "tags": {
+      "infantil": ["Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Assentos Confortáveis"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Iluminação Controlada", "Área Reservada / Calma"],
+      "pet": []
+    },
+    "vitrine": [
+      {
+        "nome": "Trilhas Ecológicas Guiadas",
+        "descricao": "Caminhadas educativas acompanhadas por condutores ambientais em horários definidos.",
+        "faixaPreco": "Entrada gratuita / sob consulta",
+        "favoritoDaCasa": true,
+        "imagem": "trilha-ecologica.jpg"
+      },
+      {
+        "nome": "Centro de Visitantes e Viveiro",
+        "descricao": "Área plana sombreada próxima à recepção com bancos e exposição botânica.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "parque-caminhada.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://sudema.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-jbbm-1",
+        "autor": "Mãe dos Bancários",
+        "data": "2026-11-14",
+        "pilares": { "infantil": 4, "acessibilidade": 4, "pet": null, "atendimento": 5 },
+        "comentario": "Ambiente extremamente calmo e sombreado, excelente para crianças com sensibilidade auditiva. Importante observar que não aceita pets por ser reserva de fauna silvestre."
+      }
+    ]
+  },
+  {
+    "id": "parque-zoobotanico-bica",
+    "nome": "Parque Zoobotânico Arruda Câmara - Bica",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Baixo Roger",
+    "endereco": "Av. Gouveia Nóbrega, s/n — Baixo Roger, João Pessoa/PB",
+    "horario": "Qua a Dom: 09h00 às 16h00",
+    "imagem": "parque-bica.jpg",
+    "descricao": "Parque público tradicional voltado ao lazer familiar e educação ambiental, com ampla área arborizada, parquinhos infantis, trenzinho interno e espaços para piquenique. Não permite pets por proteção à fauna silvestre.",
+    "tags": {
+      "infantil": ["Área Infantil Segura", "Trocador Acessível", "Espaço Kids Monitorado"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Assentos Confortáveis", "Circulação Ampla"],
+      "sensorial": ["Área Reservada / Calma"],
+      "pet": []
+    },
+    "vitrine": [
+      {
+        "nome": "Visita ao Zoobotânico e Áreas de Piquenique",
+        "descricao": "Passeio familiar sombreado com lagos, trilhas e áreas de descanso.",
+        "faixaPreco": "Entrada simbólica / isenções legais",
+        "favoritoDaCasa": true,
+        "imagem": "trilha-ecologica.jpg"
+      },
+      {
+        "nome": "Parque Infantil e Passeio de Trenzinho",
+        "descricao": "Atividades voltadas ao público infantil acompanhado por responsáveis.",
+        "faixaPreco": "Sob consulta no local",
+        "favoritoDaCasa": true,
+        "imagem": "parque-infantil.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://www.joaopessoa.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-bica-1",
+        "autor": "Família Oliveira",
+        "data": "2026-11-11",
+        "pilares": { "infantil": 5, "acessibilidade": 4, "pet": null, "atendimento": 4 },
+        "comentario": "Estrutura infantil excelente com áreas amplas para piquenique e trocador no bloco principal. Pets domésticos não são permitidos devido aos animais do parque."
+      }
+    ]
+  },
+  {
+    "id": "parque-linear-parahyba",
+    "nome": "Parque Linear Parahyba",
+    "categoria": "Parque / Lazer / Cultura",
+    "tipoOrigem": "Espaço Público",
+    "bairro": "Jardim Oceania",
+    "endereco": "Av. Governador Argemiro de Figueiredo — Jardim Oceania, João Pessoa/PB",
+    "horario": "Aberto 24 horas",
+    "imagem": "parque-linear-parahyba.jpg",
+    "descricao": "Parque linear comunitário no Bessa/Jardim Oceania com pistas planas de caminhada, espaços de convivência infantil, área aberta para cães de todos os portes e acesso contínuo 24h.",
+    "tags": {
+      "infantil": ["Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Circulação Ampla", "Assentos Confortáveis"],
+      "sensorial": ["Área Reservada / Calma"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Aceita Pet Porte Grande", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Espaço Pet Comunitário e Pistas Planas",
+        "descricao": "Caminhadas livres com cães de pequeno, médio e grande porte em guia.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "parque-caminhada.jpg"
+      },
+      {
+        "nome": "Parquinhos e Áreas de Lazer Familiar",
+        "descricao": "Brinquedos ao ar livre e praças abertas para famílias da zona norte da orla.",
+        "faixaPreco": "Entrada gratuita",
+        "favoritoDaCasa": true,
+        "imagem": "parque-infantil.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "",
+      "site": "https://www.joaopessoa.pb.gov.br/"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-plp-1",
+        "autor": "Tutor do Bessa",
+        "data": "2026-11-16",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 5, "atendimento": 4 },
+        "comentario": "Espaço aberto 24h muito utilizado por tutores de cães de médio e grande porte e famílias com carrinho de bebê."
+      }
+    ]
+  },
+  {
+    "id": "bistro-jardim-da-orla",
+    "nome": "Bistrô Jardim da Orla",
+    "categoria": "Restaurante",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Manaíra",
+    "endereco": "Av. Edson Ramalho, 420 — Manaíra, João Pessoa/PB",
+    "horario": "Ter a Dom: 11h30 às 22h00",
+    "imagem": "bistro-jardim-da-orla.jpg",
+    "descricao": "Restaurante familiar térreo com circulação ampla entre mesas, salão acusticamente tratado sem música alta, espaço kids monitorado e varanda coberta liberada para cães de pequeno e médio porte.",
+    "tags": {
+      "infantil": ["Espaço Kids Monitorado", "Trocador Acessível", "Cadeirão Infantil", "Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Assentos Confortáveis", "Circulação Ampla"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Iluminação Controlada", "Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Área Coberta Permitida", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Prato Executivo Família",
+        "descricao": "Serve até 3 pessoas com acompanhamentos frescos e opção sem glúten.",
+        "faixaPreco": "R$ 89,00",
+        "favoritoDaCasa": true,
+        "imagem": "prato-executivo.jpg"
+      },
+      {
+        "nome": "Menu Kids Nutritivo",
+        "descricao": "Porção infantil balanceada servida com talheres seguros sem ponta.",
+        "faixaPreco": "R$ 32,00",
+        "favoritoDaCasa": true,
+        "imagem": "menu-kids.jpg"
+      },
+      {
+        "nome": "Biscoito Natural Pet",
+        "descricao": "Petisco artesanal sem conservantes servido com água filtrada na varanda.",
+        "faixaPreco": "R$ 12,00",
+        "favoritoDaCasa": false,
+        "imagem": "petisco-pet.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000108",
+      "site": "https://familyplace-exemplo.jp.br/bistro-jardim-da-orla"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-bjo-1",
+        "autor": "Visitante de Manaíra",
+        "data": "2026-11-18",
+        "pilares": { "infantil": 5, "acessibilidade": 5, "pet": 4, "atendimento": 5 },
+        "comentario": "Salão silencioso e com iluminação suave; conseguimos almoçar em família com tranquilidade e há rampa sem degraus na entrada."
+      },
+      {
+        "id": "av-bjo-2",
+        "autor": "Tutora de Dois Cães",
+        "data": "2026-11-09",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 5, "atendimento": 4 },
+        "comentario": "Varanda coberta ventilada que aceita cão de porte médio e equipe sempre atenta para renovar os potes de água."
+      }
+    ]
+  },
+  {
+    "id": "quintal-bessa-familia",
+    "nome": "Quintal Bessa Família",
+    "categoria": "Restaurante",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Bessa",
+    "endereco": "Rua Fernando Luiz Henriques dos Santos, 715 — Bessa, João Pessoa/PB",
+    "horario": "Qua a Dom: 11h30 às 23h00",
+    "imagem": "quintal-bessa-familia.jpg",
+    "descricao": "Restaurante voltado a famílias com crianças e tutores de pets, oferecendo amplo espaço kids cercado com monitoria, área pet coberta para todos os portes e banheiro adaptado com trocador.",
+    "tags": {
+      "infantil": ["Espaço Kids Monitorado", "Trocador Acessível", "Cadeirão Infantil", "Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Circulação Ampla", "Assentos Confortáveis"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Área Reservada / Calma"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Aceita Pet Porte Grande", "Área Coberta Permitida", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Moqueca da Família",
+        "descricao": "Porção generosa para compartilhar com arroz branco e pirão suave.",
+        "faixaPreco": "R$ 118,00",
+        "favoritoDaCasa": true,
+        "imagem": "moqueca-peixe.jpg"
+      },
+      {
+        "nome": "Combo Infantil do Quintal",
+        "descricao": "Filé grelhado, purê caseiro e suco natural sem açúcar adicionado.",
+        "faixaPreco": "R$ 34,00",
+        "favoritoDaCasa": true,
+        "imagem": "menu-kids.jpg"
+      },
+      {
+        "nome": "Grelhado Leve Sênior",
+        "descricao": "Peixe assado com legumes macios e tempero suave.",
+        "faixaPreco": "R$ 48,00",
+        "favoritoDaCasa": false,
+        "imagem": "prato-executivo.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000109",
+      "site": "https://familyplace-exemplo.jp.br/quintal-bessa"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-qbf-1",
+        "autor": "Família Santos",
+        "data": "2026-11-17",
+        "pilares": { "infantil": 5, "acessibilidade": 5, "pet": 5, "atendimento": 4 },
+        "comentario": "Espaço kids realmente monitorado e seguro. Levamos nosso cachorro de porte médio e ficamos em uma área coberta ventilada."
+      },
+      {
+        "id": "av-qbf-2",
+        "autor": "Visitante do Bessa",
+        "data": "2026-11-06",
+        "pilares": { "infantil": 5, "acessibilidade": 4, "pet": 5, "atendimento": 5 },
+        "comentario": "Banheiro adaptado limpo, cadeirões conservados e sala lateral mais silenciosa para quem prefere menos movimento."
+      }
+    ]
+  },
+  {
+    "id": "casa-calma-gastronomia",
+    "nome": "Casa Calma Gastronomia",
+    "categoria": "Restaurante",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Cabo Branco",
+    "endereco": "Av. Cabo Branco, 1890 — Cabo Branco, João Pessoa/PB",
+    "horario": "Ter a Dom: 12h00 às 21h30",
+    "imagem": "casa-calma-gastronomia.jpg",
+    "descricao": "Restaurante planejado com foco em acessibilidade física e conforto sensorial: piso tátil na recepção, iluminação indireta suave, ausência de música ao vivo e cardápio com pictogramas e letras ampliadas.",
+    "tags": {
+      "infantil": ["Trocador Acessível", "Cadeirão Infantil"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Piso Tátil / Sinalização", "Assentos Confortáveis", "Circulação Ampla"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Iluminação Controlada", "Área Reservada / Calma", "Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Área Coberta Permitida"]
+    },
+    "vitrine": [
+      {
+        "nome": "Risoto de Camarão Suave",
+        "descricao": "Preparo artesanal com opção sem lactose e cardápio ilustrado.",
+        "faixaPreco": "R$ 68,00",
+        "favoritoDaCasa": true,
+        "imagem": "prato-executivo.jpg"
+      },
+      {
+        "nome": "Cardápio Sensorial Personalizável",
+        "descricao": "Ingredientes servidos separadamente no prato para maior previsibilidade alimentar.",
+        "faixaPreco": "R$ 42,00",
+        "favoritoDaCasa": true,
+        "imagem": "menu-kids.jpg"
+      },
+      {
+        "nome": "Suco Natural da Estação",
+        "descricao": "Frutas regionais servidas em copo estável com opção de canudo reutilizável.",
+        "faixaPreco": "R$ 14,00",
+        "favoritoDaCasa": false,
+        "imagem": "cha-suco.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000110",
+      "site": "https://familyplace-exemplo.jp.br/casa-calma"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-ccg-1",
+        "autor": "Visitante de Cabo Branco",
+        "data": "2026-11-19",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 4, "atendimento": 5 },
+        "comentario": "Melhor ambiente acústico que já visitamos em João Pessoa. Cardápio com fonte grande e atendimento extremamente paciente."
+      },
+      {
+        "id": "av-ccg-2",
+        "autor": "Acompanhante de Idoso",
+        "data": "2026-11-05",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 5, "atendimento": 5 },
+        "comentario": "Piso tátil bem instalado, cadeiras com apoio de braço e mesas bem espaçadas para cadeira de rodas."
+      }
+    ]
+  },
+  {
+    "id": "cafeteria-acolher-tambau",
+    "nome": "Cafeteria Acolher Tambaú",
+    "categoria": "Cafeteria / Padaria",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Tambaú",
+    "endereco": "Av. Nossa Senhora dos Navegantes, 310 — Tambaú, João Pessoa/PB",
+    "horario": "Seg a Dom: 07h30 às 20h00",
+    "imagem": "cafeteria-acolher-tambau.jpg",
+    "descricao": "Cafeteria familiar inclusiva com rampa de acesso na entrada principal, cadeirões infantis, mesas térreas confortáveis e varanda coberta preparada para cães de pequeno e médio porte.",
+    "tags": {
+      "infantil": ["Cadeirão Infantil", "Trocador Acessível"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Assentos Confortáveis", "Circulação Ampla"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Área Coberta Permitida", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Café Coado Especial e Tapioca Regional",
+        "descricao": "Combinação clássica da casa preparada na hora com opções sem glúten.",
+        "faixaPreco": "R$ 28,00",
+        "favoritoDaCasa": true,
+        "imagem": "cafe-tapioca.jpg"
+      },
+      {
+        "nome": "Bolo Caseiro de Macaxeira",
+        "descricao": "Receita tradicional servida morna em fatia individual ou família.",
+        "faixaPreco": "R$ 16,00",
+        "favoritoDaCasa": true,
+        "imagem": "bolo-padaria.jpg"
+      },
+      {
+        "nome": "Água Fresca e Petisco Pet",
+        "descricao": "Potes higienizados disponíveis gratuitamente na varanda coberta.",
+        "faixaPreco": "Cortesia / petisco R$ 9,00",
+        "favoritoDaCasa": false,
+        "imagem": "petisco-pet.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000111",
+      "site": "https://familyplace-exemplo.jp.br/cafeteria-acolher"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-cat-1",
+        "autor": "Visitante de Tambaú",
+        "data": "2026-11-16",
+        "pilares": { "infantil": 4, "acessibilidade": 5, "pet": 5, "atendimento": 5 },
+        "comentario": "Varanda protegida do sol e da chuva, equipe cordial e confirmação de mesa térrea pelo WhatsApp."
+      }
+    ]
+  },
+  {
+    "id": "padaria-sabor-dos-bancarios",
+    "nome": "Padaria Sabor dos Bancários",
+    "categoria": "Cafeteria / Padaria",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Bancários",
+    "endereco": "Av. Sérgio Guerra, 640 — Bancários, João Pessoa/PB",
+    "horario": "Seg a Dom: 06h00 às 21h00",
+    "imagem": "padaria-sabor-dos-bancarios.jpg",
+    "descricao": "Padaria de bairro tradicional nos Bancários com salão amplo no térreo, acesso nivelado para carrinhos de bebê e cadeiras de rodas, além de cadeirões e espaço externo coberto para pets.",
+    "tags": {
+      "infantil": ["Cadeirão Infantil", "Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Assentos Confortáveis", "Circulação Ampla"],
+      "sensorial": ["Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Área Coberta Permitida", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Café da Manhã Regional Completo",
+        "descricao": "Cuscuz, ovos mexidos, raízes cozidas, frutas e café coado.",
+        "faixaPreco": "R$ 35,00",
+        "favoritoDaCasa": true,
+        "imagem": "cafe-tapioca.jpg"
+      },
+      {
+        "nome": "Pão de Queijo Artesanal",
+        "descricao": "Fornadas contínuas ao longo da manhã e da tarde.",
+        "faixaPreco": "R$ 12,00",
+        "favoritoDaCasa": false,
+        "imagem": "bolo-padaria.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000112",
+      "site": ""
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-psb-1",
+        "autor": "Morador dos Bancários",
+        "data": "2026-11-13",
+        "pilares": { "infantil": 4, "acessibilidade": 4, "pet": 4, "atendimento": 5 },
+        "comentario": "Bom custo-benefício para café da manhã em família. Entrada sem degraus e atendimento atencioso com idosos."
+      }
+    ]
+  },
+  {
+    "id": "cantina-brisa-do-bessa",
+    "nome": "Cantina Brisa do Bessa",
+    "categoria": "Restaurante",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Bessa",
+    "endereco": "Av. Afonso Pena, 520 — Bessa, João Pessoa/PB",
+    "horario": "Ter a Dom: 11h30 às 22h30",
+    "imagem": "cantina-brisa-do-bessa.jpg",
+    "descricao": "Cantina de massas frescas próxima à orla do Bessa com pátio coberto amplo para cães de pequeno, médio e grande porte, trocador familiar e acesso nivelado.",
+    "tags": {
+      "infantil": ["Trocador Acessível", "Cadeirão Infantil"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Circulação Ampla"],
+      "sensorial": [],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Aceita Pet Porte Grande", "Área Coberta Permitida", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Talharim Artesanal ao Molho Pomodoro",
+        "descricao": "Massa fresca produzida diariamente com opção de porção família.",
+        "faixaPreco": "R$ 56,00",
+        "favoritoDaCasa": true,
+        "imagem": "massas-italianas.jpg"
+      },
+      {
+        "nome": "Lasanha Bolonhesa da Cantina",
+        "descricao": "Porção individual ou para duas pessoas assada em forno a lenha.",
+        "faixaPreco": "R$ 64,00",
+        "favoritoDaCasa": true,
+        "imagem": "massas-italianas.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000113",
+      "site": "https://familyplace-exemplo.jp.br/cantina-brisa"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-cbb-1",
+        "autor": "Tutor de Cão Grande",
+        "data": "2026-11-15",
+        "pilares": { "infantil": 4, "acessibilidade": 4, "pet": 5, "atendimento": 5 },
+        "comentario": "Raro restaurante na orla que recebe cães de porte grande em área coberta sem restrições constrangedoras."
+      }
+    ]
+  },
+  {
+    "id": "cafe-silencio-e-leitura",
+    "nome": "Café Silêncio & Leitura",
+    "categoria": "Cafeteria / Padaria",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Manaíra",
+    "endereco": "Rua Manoel Arruda Cavalcante, 215 — Manaíra, João Pessoa/PB",
+    "horario": "Seg a Sáb: 09h00 às 20h00",
+    "imagem": "cafe-silencio-e-leitura.jpg",
+    "descricao": "Cafeteria projetada especialmente para conforto sensorial e leitura: isolamento acústico, iluminação quente dimerizável, cabines reservadas e comunicação visual clara para pessoas neurodivergentes e idosos.",
+    "tags": {
+      "infantil": ["Cadeirão Infantil"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Piso Tátil / Sinalização", "Assentos Confortáveis"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Iluminação Controlada", "Área Reservada / Calma", "Cardápio / Comunicação Visual"],
+      "pet": ["Aceita Pet Porte Pequeno", "Área Coberta Permitida"]
+    },
+    "vitrine": [
+      {
+        "nome": "Chá Calmante de Camomila e Capim-Santo",
+        "descricao": "Infusão natural servida em xícara térmica sem excesso de aroma artificial.",
+        "faixaPreco": "R$ 15,00",
+        "favoritoDaCasa": true,
+        "imagem": "cha-suco.jpg"
+      },
+      {
+        "nome": "Tostex Artesanal e Suco Natural",
+        "descricao": "Opções simples e previsíveis montadas conforme preferência do cliente.",
+        "faixaPreco": "R$ 26,00",
+        "favoritoDaCasa": true,
+        "imagem": "cafe-tapioca.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000114",
+      "site": "https://familyplace-exemplo.jp.br/cafe-silencio"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-csl-1",
+        "autor": "Visitante Neurodivergente",
+        "data": "2026-11-18",
+        "pilares": { "infantil": 3, "acessibilidade": 5, "pet": 4, "atendimento": 5 },
+        "comentario": "Zero música alta, iluminação muito confortável e cabines reservadas. Referência em previsibilidade sensorial em Manaíra."
+      }
+    ]
+  },
+  {
+    "id": "espaco-brincar-e-cuidar",
+    "nome": "Espaço Brincar & Cuidar",
+    "categoria": "Serviço / Lazer",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Bancários",
+    "endereco": "Rua Bancário Waldemar de Mesquita Accioly, 180 — Bancários, João Pessoa/PB",
+    "horario": "Ter a Dom: 09h00 às 19h00",
+    "imagem": "espaco-brincar-e-cuidar.jpg",
+    "descricao": "Espaço de recreação infantil inclusiva nos Bancários com piso emborrachado antiderrapante, sala de descompressão sensorial, monitores capacitados e área de espera confortável para pais e avós.",
+    "tags": {
+      "infantil": ["Espaço Kids Monitorado", "Trocador Acessível", "Cadeirão Infantil", "Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Piso Tátil / Sinalização", "Assentos Confortáveis", "Circulação Ampla"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Iluminação Controlada", "Área Reservada / Calma", "Cardápio / Comunicação Visual"],
+      "pet": []
+    },
+    "vitrine": [
+      {
+        "nome": "Hora Livre no Circuito Brincar Inclusivo",
+        "descricao": "Brincadeiras livres com acompanhamento de recreadores treinados.",
+        "faixaPreco": "R$ 35,00 / hora",
+        "favoritoDaCasa": true,
+        "imagem": "parque-infantil.jpg"
+      },
+      {
+        "nome": "Oficina Sensorial de Sábado",
+        "descricao": "Atividades lúdicas em grupos reduzidos com agendamento via WhatsApp.",
+        "faixaPreco": "R$ 45,00 / sessão",
+        "favoritoDaCasa": true,
+        "imagem": "oficina-infantil.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000115",
+      "site": "https://familyplace-exemplo.jp.br/brincar-e-cuidar"
+    },
+    "avaliacoesIniciais": [
+      {
+        "id": "av-ebc-1",
+        "autor": "Mãe dos Bancários",
+        "data": "2026-11-19",
+        "pilares": { "infantil": 5, "acessibilidade": 5, "pet": 2, "atendimento": 5 },
+        "comentario": "A sala de descompressão sensorial faz toda diferença para meu filho autista. Trocador amplo e equipe preparada."
+      }
+    ]
+  },
+  {
+    "id": "recanto-verde-cabo-branco",
+    "nome": "Recanto Verde Cabo Branco",
+    "categoria": "Restaurante",
+    "tipoOrigem": "Estabelecimento Local",
+    "bairro": "Cabo Branco",
+    "endereco": "Rua Antônio Lira, 95 — Cabo Branco, João Pessoa/PB",
+    "horario": "Qua a Dom: 11h30 às 21h00",
+    "imagem": "recanto-verde-cabo-branco.jpg",
+    "descricao": "Restaurante recém-inaugurado no Cabo Branco com jardim sombreado, rampa de acesso, espaço infantil cercado e varanda coberta pet friendly. Ainda aguardando as primeiras avaliações da comunidade.",
+    "tags": {
+      "infantil": ["Trocador Acessível", "Cadeirão Infantil", "Área Infantil Segura"],
+      "acessibilidade": ["Rampa de Acessibilidade", "Banheiro Adaptado", "Assentos Confortáveis"],
+      "sensorial": ["Ambiente com Baixo Ruído", "Área Reservada / Calma"],
+      "pet": ["Aceita Pet Porte Pequeno", "Aceita Pet Porte Médio", "Área Coberta Permitida", "Potes de Água Disponíveis"]
+    },
+    "vitrine": [
+      {
+        "nome": "Peixe Grelhado com Legumes da Horta",
+        "descricao": "Prato leve com ingredientes frescos servidos em área ventilada.",
+        "faixaPreco": "R$ 58,00",
+        "favoritoDaCasa": true,
+        "imagem": "moqueca-peixe.jpg"
+      },
+      {
+        "nome": "Pratinho Infantil Recanto",
+        "descricao": "Arroz, feijão caseiro, frango em cubos e legumes no vapor.",
+        "faixaPreco": "R$ 29,00",
+        "favoritoDaCasa": false,
+        "imagem": "menu-kids.jpg"
+      }
+    ],
+    "contato": {
+      "whatsapp": "5583999000116",
+      "site": "https://familyplace-exemplo.jp.br/recanto-verde"
+    },
+    "avaliacoesIniciais": []
+  }
+]
