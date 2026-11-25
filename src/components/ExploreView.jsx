@@ -3,6 +3,7 @@ import {
   CATEGORIAS,
   FILTER_GROUPS,
   PILLARS,
+  formatReviewsCount,
   getAllTagsFlat,
   getImageUrl,
 } from '../utils/helpers';
@@ -13,6 +14,7 @@ import {
   IconFilter,
   IconMapPin,
   IconSearch,
+  IconStar,
 } from './Icons';
 
 export default function ExploreView({
@@ -293,22 +295,33 @@ export default function ExploreView({
                         )}
                       </div>
 
-                      <div className="pillars-summary" aria-label="Notas por critério">
-                        {PILLARS.map((pillar) => {
-                          const pData = avg.pillars[pillar.key];
-                          return (
-                            <div key={pillar.key} className="pillar-mini-box">
-                              <span className="pillar-mini-label">{pillar.shortLabel}</span>
-                              <strong
-                                className={`pillar-mini-score ${
-                                  pData.value === null ? 'is-empty' : ''
-                                }`}
-                              >
-                                {pData.shortFormatted}
-                              </strong>
-                            </div>
-                          );
-                        })}
+                      <div className="card-ratings-block">
+                        <div className="card-ratings-header">
+                          <span className="card-ratings-label">Notas da comunidade</span>
+                          <span
+                            className={`card-reviews-count ${avg.total > 0 ? 'has-reviews' : ''}`}
+                          >
+                            <IconStar size={12} filled={avg.total > 0} />
+                            <span>{formatReviewsCount(avg.total)}</span>
+                          </span>
+                        </div>
+                        <div className="pillars-summary" aria-label="Notas por critério">
+                          {PILLARS.map((pillar) => {
+                            const pData = avg.pillars[pillar.key];
+                            return (
+                              <div key={pillar.key} className="pillar-mini-box">
+                                <span className="pillar-mini-label">{pillar.shortLabel}</span>
+                                <strong
+                                  className={`pillar-mini-score ${
+                                    pData.value === null ? 'is-empty' : ''
+                                  }`}
+                                >
+                                  {pData.shortFormatted}
+                                </strong>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
                   </article>

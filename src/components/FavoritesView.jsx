@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { PILLARS, getImageUrl } from '../utils/helpers';
+import {
+  PILLARS,
+  formatReviewsCount,
+  getImageUrl,
+  isDefaultFavoritesList,
+} from '../utils/helpers';
 import {
   IconClock,
   IconEdit,
@@ -7,6 +12,7 @@ import {
   IconLogIn,
   IconMapPin,
   IconPlus,
+  IconStar,
   IconTrash,
 } from './Icons';
 
@@ -79,6 +85,7 @@ export default function FavoritesView({
   }
 
   const activeList = lists.find((l) => l.id === selectedListId) || lists[0] || null;
+  const activeIsDefault = isDefaultFavoritesList(activeList);
 
   const handleCreateSubmit = async (event) => {
     event.preventDefault();
@@ -100,7 +107,7 @@ export default function FavoritesView({
   };
 
   const startRename = () => {
-    if (!activeList) return;
+    if (!activeList || isDefaultFavoritesList(activeList)) return;
     setRenameValue(activeList.nome);
     setRenameError('');
     setIsRenaming(true);
@@ -219,7 +226,12 @@ export default function FavoritesView({
                         setConfirmingDeleteId(null);
                       }}
                     >
-                      <span className="list-nav-name">{list.nome}</span>
+                      <span className="list-nav-label-group">
+                        <span className="list-nav-name">{list.nome}</span>
+                        {isDefaultFavoritesList(list) && (
+                          <span className="list-default-badge">Padrão</span>
+                        )}
+                      </span>
                       <span className="list-nav-badge" aria-label={`${list.locaisIds.length} locais`}>
                         {list.locaisIds.length}
                       </span>
@@ -235,33 +247,38 @@ export default function FavoritesView({
               <>
                 <div className="active-list-header">
                   <div>
-                    <h2>{activeList.nome}</h2>
+                    <div className="active-list-title-row">
+                      <h2>{activeList.nome}</h2>
+                      {activeIsDefault && <span className="list-default-badge">Padrão</span>}
+                    </div>
                     <p className="active-list-count">
                       {savedPlaces.length}{' '}
                       {savedPlaces.length === 1 ? 'local salvo' : 'locais salvos'}
                     </p>
                   </div>
 
-                  <div className="active-list-actions">
-                    <button type="button" className="btn btn-outline btn-sm" onClick={startRename}>
-                      <IconEdit size={15} />
-                      <span>Renomear</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-danger-outline btn-sm"
-                      onClick={() => {
-                        setConfirmingDeleteId(activeList.id);
-                        setIsRenaming(false);
-                      }}
-                    >
-                      <IconTrash size={15} />
-                      <span>Excluir</span>
-                    </button>
-                  </div>
+                  {!activeIsDefault && (
+                    <div className="active-list-actions">
+                      <button type="button" className="btn btn-outline btn-sm" onClick={startRename}>
+                        <IconEdit size={15} />
+                        <span>Renomear</span>
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-danger-outline btn-sm"
+                        onClick={() => {
+                          setConfirmingDeleteId(activeList.id);
+                          setIsRenaming(false);
+                        }}
+                      >
+                        <IconTrash size={15} />
+                        <span>Excluir</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
 
-                {isRenaming && (
+                {isRenaming && !activeIsDefault && (
                   <form onSubmit={handleRenameSubmit} className="action-box" noValidate>
                     <label htmlFor="campo-renomear-lista">Novo nome da lista</label>
                     <div className="inline-input-row">
@@ -301,7 +318,7 @@ export default function FavoritesView({
                   </form>
                 )}
 
-                {confirmingDeleteId === activeList.id && (
+                {confirmingDeleteId === activeList.id && !activeIsDefault && (
                   <div
                     className="action-box action-box-danger"
                     role="alertdialog"
@@ -397,22 +414,35 @@ export default function FavoritesView({
                               </span>
                             </div>
 
-                            <div className="pillars-summary">
-                              {PILLARS.map((pillar) => {
-                                const pData = avg.pillars[pillar.key];
-                                return (
-                                  <div key={pillar.key} className="pillar-mini-box">
-                                    <span className="pillar-mini-label">{pillar.shortLabel}</span>
-                                    <strong
-                                      className={`pillar-mini-score ${
-                                        pData.value === null ? 'is-empty' : ''
-                                      }`}
-                                    >
-                                      {pData.shortFormatted}
-                                    </strong>
-                                  </div>
-                                );
-                              })}
+                            <div className="card-ratings-block">
+                              <div className="card-ratings-header">
+                                <span className="card-ratings-label">Notas da comunidade</span>
+                                <span
+                                  className={`card-reviews-count ${
+                                    avg.total > 0 ? 'has-reviews' : ''
+                                  }`}
+                                >
+                                  <IconStar size={12} filled={avg.total > 0} />
+                                  <span>{formatReviewsCount(avg.total)}</span>
+                                </span>
+                              </div>
+                              <div className="pillars-summary" aria-label="Notas por critério">
+                                {PILLARS.map((pillar) => {
+                                  const pData = avg.pillars[pillar.key];
+                                  return (
+                                    <div key={pillar.key} className="pillar-mini-box">
+                                      <span className="pillar-mini-label">{pillar.shortLabel}</span>
+                                      <strong
+                                        className={`pillar-mini-score ${
+                                          pData.value === null ? 'is-empty' : ''
+                                        }`}
+                                      >
+                                        {pData.shortFormatted}
+                                      </strong>
+                                    </div>
+                                  );
+                                })}
+                              </div>
                             </div>
                           </div>
                         </article>

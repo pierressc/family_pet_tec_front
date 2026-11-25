@@ -1,4 +1,11 @@
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
+import {
+  DEFAULT_FAVORITES_LIST_NAME,
+  normalizeText,
+  sortFavoriteLists,
+} from '../utils/helpers';
+
+const inFlightFavoriteListsByUser = new Map();
 
 export function translateSupabaseError(error) {
   const raw = String(error?.message || error?.error_description || '').toLowerCase();
@@ -271,27 +278,59 @@ export async function fetchUserFavoriteLists(userId) {
     return { ok: true, data: [] };
   }
 
-  const { data, error } = await supabase
-    .from('favorite_lists')
-    .select('id, name, created_at, favorite_list_items(place_id, created_at)')
-    .eq('user_id', userId)
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    return { ok: false, data: [], error: translateSupabaseError(error) };
+  if (inFlightFavoriteListsByUser.has(userId)) {
+    return inFlightFavoriteListsByUser.get(userId);
   }
 
-  const lists = (data || []).map((row) => {
-    const items = Array.isArray(row.favorite_list_items) ? [...row.favorite_list_items] : [];
-    items.sort((a, b) => String(b.created_at || '').localeCompare(String(a.created_at || '')));
-    return {
-      id: row.id,
-      nome: row.name,
-      locaisIds: items.map((item) => item.place_id),
-    };
+  const requestPromise = (async () => {
+    const { data, error } = await supabase
+      .from('favorite_lists')
+      .select('id, name, created_at, favorite_list_items(place_id, created_at)')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      return { ok: false, data: [], error: translateSupabaseError(error) };
+    }
+
+    const lists = (data || []).map((row) => {
+      const items = Array.isArray(row.favorite_list_items) ? [...row.favorite_list_items] : [];
+      items.sort((a, b) => String(b.created_at || '').localeCompare(String(a.created_at || '')));
+      return {
+        id: row.id,
+        nome: row.name,
+        locaisIds: items.map((item) => item.place_id),
+      };
+    });
+
+    const hasDefaultList = lists.some(
+      (list) => normalizeText(list.nome) === normalizeText(DEFAULT_FAVORITES_LIST_NAME)
+    );
+
+    if (!hasDefaultList) {
+      const { data: createdRow, error: createError } = await supabase
+        .from('favorite_lists')
+        .insert({ user_id: userId, name: DEFAULT_FAVORITES_LIST_NAME })
+        .select('id, name')
+        .single();
+
+      if (!createError && createdRow) {
+        lists.unshift({
+          id: createdRow.id,
+          nome: createdRow.name,
+          locaisIds: [],
+          isDefault: true,
+        });
+      }
+    }
+
+    return { ok: true, data: sortFavoriteLists(lists) };
+  })().finally(() => {
+    inFlightFavoriteListsByUser.delete(userId);
   });
 
-  return { ok: true, data: lists };
+  inFlightFavoriteListsByUser.set(userId, requestPromise);
+  return requestPromise;
 }
 
 export async function createUserFavoriteList({ userId, name, initialPlaceId = null }) {

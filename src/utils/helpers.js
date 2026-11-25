@@ -200,3 +200,37 @@ export function formatDateBR(isoDate) {
   if (parts.length !== 3) return isoDate;
   return `${parts[2]}/${parts[1]}/${parts[0]}`;
 }
+
+export const DEFAULT_FAVORITES_LIST_NAME = 'Favoritos';
+
+export function isDefaultFavoritesList(list) {
+  if (!list) return false;
+  if (list.isDefault) return true;
+  return normalizeText(list.nome) === normalizeText(DEFAULT_FAVORITES_LIST_NAME);
+}
+
+export function sortFavoriteLists(lists) {
+  if (!Array.isArray(lists)) return [];
+  let defaultAssigned = false;
+  const normalized = lists.map((list) => {
+    const matchesDefault =
+      !defaultAssigned &&
+      normalizeText(list?.nome) === normalizeText(DEFAULT_FAVORITES_LIST_NAME);
+    if (matchesDefault) {
+      defaultAssigned = true;
+      return { ...list, isDefault: true };
+    }
+    return { ...list, isDefault: false };
+  });
+
+  const defaultLists = normalized.filter((list) => list.isDefault);
+  const customLists = normalized.filter((list) => !list.isDefault);
+  return [...defaultLists, ...customLists];
+}
+
+export function formatReviewsCount(total) {
+  const count = Number(total) || 0;
+  if (count === 0) return 'Sem avaliações';
+  if (count === 1) return '1 avaliação';
+  return `${count} avaliações`;
+}

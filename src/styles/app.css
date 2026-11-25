@@ -2362,3 +2362,338 @@ button:disabled {
     font-size: 0.85rem;
   }
 }
+
+/* Card Reviews Count & Ratings Block */
+.card-ratings-block {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 2px;
+}
+
+.card-ratings-block .pillars-summary {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.card-ratings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-ratings-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.card-reviews-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.card-reviews-count.has-reviews {
+  color: var(--text-primary);
+}
+
+.card-reviews-count.has-reviews svg {
+  color: var(--star-active);
+}
+
+/* Default Favorites List Badge */
+.list-nav-label-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.active-list-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.save-list-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.list-default-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: var(--brand-soft);
+  color: var(--brand-text-soft);
+  border: 1px solid var(--brand);
+  white-space: nowrap;
+}
+
+.list-nav-btn.is-selected .list-default-badge {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Header Profile Dropdown */
+.profile-menu-wrap {
+  position: relative;
+}
+
+.profile-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  border: 1.5px solid var(--brand);
+  color: var(--brand-text-soft);
+  font-size: 0.875rem;
+  font-weight: 700;
+  max-width: 200px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.profile-menu-trigger:hover,
+.profile-menu-trigger.is-open {
+  background: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+  color: #ffffff;
+}
+
+.profile-menu-trigger svg {
+  flex-shrink: 0;
+}
+
+.profile-menu-chevron {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.16s ease;
+}
+
+.profile-menu-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 236px;
+  max-width: calc(100vw - 24px);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 90;
+}
+
+.profile-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 11px;
+  min-height: 40px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.profile-menu-item:hover {
+  background: var(--bg-subtle);
+}
+
+.profile-menu-item-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.profile-menu-item-main svg {
+  flex-shrink: 0;
+  color: var(--brand);
+}
+
+.profile-menu-item.is-disabled {
+  color: var(--text-secondary);
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.profile-menu-item.is-disabled:hover {
+  background: transparent;
+}
+
+.profile-menu-item.is-disabled svg {
+  color: var(--text-secondary);
+}
+
+.profile-menu-item.is-danger {
+  color: var(--danger);
+}
+
+.profile-menu-item.is-danger svg {
+  color: var(--danger);
+}
+
+.profile-menu-item.is-danger:hover {
+  background: var(--danger-bg);
+}
+
+.profile-menu-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 4px 6px;
+}
+
+.menu-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand-text-soft);
+  border: 1px solid var(--brand);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.menu-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* My Reviews Modal */
+.my-reviews-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.my-reviews-empty {
+  padding: 28px 18px;
+}
+
+.my-reviews-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.my-review-card {
+  background: var(--bg-page);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.my-review-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.my-review-place-info {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.my-review-thumb {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.my-review-place-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.my-review-place-name {
+  font-size: 1rem;
+  line-height: 1.28;
+  color: var(--text-primary);
+}
+
+.my-review-place-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .profile-menu-trigger {
+    max-width: 150px;
+    min-height: 36px;
+    padding: 4px 9px;
+    font-size: 0.84rem;
+  }
+
+  .my-review-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .my-review-thumb {
+    width: 50px;
+    height: 50px;
+  }
+}

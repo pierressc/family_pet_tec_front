@@ -19,7 +19,9 @@ import {
   calculatePillarAverages,
   getAllTagsFlat,
   getOverallScore,
+  isDefaultFavoritesList,
   normalizeText,
+  sortFavoriteLists,
 } from './utils/helpers';
 import { loadThemePreference, saveThemePreference } from './utils/storage';
 import ExploreView from './components/ExploreView';
@@ -29,6 +31,7 @@ import RatingModal from './components/RatingModal';
 import SaveToListModal from './components/SaveToListModal';
 import CityModal from './components/CityModal';
 import AuthModal from './components/AuthModal';
+import MyReviewsModal from './components/MyReviewsModal';
 import {
   IconBookmark,
   IconChevronDown,
@@ -39,6 +42,7 @@ import {
   IconMapPin,
   IconMoon,
   IconSearch,
+  IconStar,
   IconSun,
   IconUser,
 } from './components/Icons';
@@ -99,11 +103,13 @@ export default function App() {
   );
   const [toastMessage, setToastMessage] = useState('');
 
-  // Sessão de autenticação
+  // Sessão de autenticação e menu de perfil
   const [user, setUser] = useState(null);
   const [profileName, setProfileName] = useState('');
   const [authModal, setAuthModal] = useState({ open: false, mode: 'login', notice: '' });
   const [pendingAction, setPendingAction] = useState(null);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const [myReviewsOpen, setMyReviewsOpen] = useState(false);
 
   // Estado preservado de busca e filtros
   const [searchQuery, setSearchQuery] = useState('');
@@ -123,9 +129,11 @@ export default function App() {
   const [saveTargetPlace, setSaveTargetPlace] = useState(null);
   const [reviewsFocusToken, setReviewsFocusToken] = useState(0);
 
-  // Referências para restauração de foco ao fechar modais
+  // Referências para restauração de foco e fechamento de dropdown
   const detailTriggerRef = useRef(null);
   const topModalTriggerRef = useRef(null);
+  const profileMenuRef = useRef(null);
+  const profileTriggerRef = useRef(null);
 
   // Aplicação do tema claro/escuro (único dado mantido em localStorage)
   useEffect(() => {
@@ -176,12 +184,38 @@ export default function App() {
 
     setProfileName(resolvedName || fallbackName);
     if (listsRes.ok) {
-      setFavoriteLists(listsRes.data);
+      setFavoriteLists(sortFavoriteLists(listsRes.data));
     } else if (listsRes.error) {
       setToastMessage(listsRes.error);
     }
     setIsLoadingLists(false);
   }, []);
+
+  // Fechar menu de perfil ao clicar fora ou pressionar Esc
+  useEffect(() => {
+    if (!profileMenuOpen) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target)) {
+        setProfileMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.stopPropagation();
+        setProfileMenuOpen(false);
+        profileTriggerRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [profileMenuOpen]);
 
   // Persistência de sessão com Supabase Auth
   useEffect(() => {
@@ -211,7 +245,12 @@ export default function App() {
 
   // Travamento da rolagem da página de fundo enquanto qualquer modal estiver aberto
   const hasAnyModalOpen = Boolean(
-    detailPlaceId || ratingTargetPlace || saveTargetPlace || cityModalOpen || authModal.open
+    detailPlaceId ||
+      ratingTargetPlace ||
+      saveTargetPlace ||
+      cityModalOpen ||
+      authModal.open ||
+      myReviewsOpen
   );
   useEffect(() => {
     if (hasAnyModalOpen) {
@@ -302,6 +341,7 @@ export default function App() {
   );
 
   const handleSignOut = async () => {
+    setProfileMenuOpen(false);
     const res = await signOutUser();
     if (!res.ok) {
       setToastMessage(res.error);
@@ -312,8 +352,22 @@ export default function App() {
     setFavoriteLists([]);
     setRatingTargetPlace(null);
     setSaveTargetPlace(null);
+    setMyReviewsOpen(false);
     setToastMessage('Você saiu da sua conta.');
   };
+
+  const handleOpenMyReviews = () => {
+    setProfileMenuOpen(false);
+    setMyReviewsOpen(true);
+  };
+
+  const handleCloseMyReviews = useCallback(() => {
+    setMyReviewsOpen(false);
+    const trigger = profileTriggerRef.current;
+    if (trigger && trigger.isConnected) {
+      window.requestAnimationFrame(() => trigger.focus());
+    }
+  }, []);
 
   const handleOpenDetail = useCallback((placeId) => {
     if (document.activeElement instanceof HTMLElement) {
@@ -587,7 +641,7 @@ export default function App() {
       return res;
     }
 
-    setFavoriteLists((prev) => [res.list, ...prev]);
+    setFavoriteLists((prev) => sortFavoriteLists([res.list, ...prev]));
     setToastMessage(`Lista "${trimmed}" criada.`);
     return { ok: true, createdId: res.list.id };
   };
@@ -595,6 +649,11 @@ export default function App() {
   const handleRenameList = async (listId, rawName) => {
     if (!user) {
       return { ok: false, error: 'Faça login para renomear listas.' };
+    }
+
+    const target = favoriteLists.find((l) => l.id === listId);
+    if (isDefaultFavoritesList(target)) {
+      return { ok: false, error: 'A lista padrão "Favoritos" não pode ser renomeada.' };
     }
 
     const trimmed = String(rawName || '').trim();
@@ -615,7 +674,9 @@ export default function App() {
       return res;
     }
 
-    setFavoriteLists((prev) => prev.map((l) => (l.id === listId ? { ...l, nome: trimmed } : l)));
+    setFavoriteLists((prev) =>
+      sortFavoriteLists(prev.map((l) => (l.id === listId ? { ...l, nome: trimmed } : l)))
+    );
     setToastMessage(`Lista renomeada para "${trimmed}".`);
     return { ok: true };
   };
@@ -623,6 +684,10 @@ export default function App() {
   const handleDeleteList = async (listId) => {
     if (!user) return { ok: false };
     const target = favoriteLists.find((l) => l.id === listId);
+    if (isDefaultFavoritesList(target)) {
+      setToastMessage('A lista padrão "Favoritos" não pode ser excluída.');
+      return { ok: false };
+    }
 
     const res = await deleteUserFavoriteList({ listId, userId: user.id });
     if (!res.ok) {
@@ -630,7 +695,7 @@ export default function App() {
       return res;
     }
 
-    setFavoriteLists((prev) => prev.filter((l) => l.id !== listId));
+    setFavoriteLists((prev) => sortFavoriteLists(prev.filter((l) => l.id !== listId)));
     if (target) {
       setToastMessage(`Lista "${target.nome}" removida.`);
     }
@@ -693,6 +758,23 @@ export default function App() {
     }
     return set.size;
   }, [favoriteLists]);
+
+  const userReviewsList = useMemo(() => {
+    if (!user) return [];
+    const collected = [];
+    for (const list of Object.values(reviewsByPlace)) {
+      for (const rev of list) {
+        if (rev.userId && rev.userId === user.id) {
+          collected.push(rev);
+        }
+      }
+    }
+    return collected.sort((a, b) => {
+      const ta = a.timestamp || `${a.data || '2000-01-01'}T00:00:00.000Z`;
+      const tb = b.timestamp || `${b.data || '2000-01-01'}T00:00:00.000Z`;
+      return String(tb).localeCompare(String(ta));
+    });
+  }, [reviewsByPlace, user]);
 
   const currentDetailPlace = detailPlaceId ? allPlacesById[detailPlaceId] || null : null;
   const currentUserReview = currentDetailPlace ? getUserReviewForPlace(currentDetailPlace.id) : null;
@@ -772,20 +854,79 @@ export default function App() {
 
             <div className="header-utility-group">
               {user ? (
-                <div className="header-user-controls">
-                  <span className="header-user-chip" title={profileName}>
+                <div className="profile-menu-wrap" ref={profileMenuRef}>
+                  <button
+                    ref={profileTriggerRef}
+                    type="button"
+                    className={`profile-menu-trigger ${profileMenuOpen ? 'is-open' : ''}`}
+                    aria-haspopup="menu"
+                    aria-expanded={profileMenuOpen}
+                    aria-controls="profile-dropdown-menu"
+                    aria-label={`Menu do perfil de ${profileName || 'usuário'}`}
+                    onClick={() => setProfileMenuOpen((prev) => !prev)}
+                  >
                     <IconUser size={15} />
                     <span className="header-user-name">{profileName}</span>
-                  </span>
-                  <button
-                    type="button"
-                    className="btn btn-outline btn-sm header-logout-btn"
-                    onClick={handleSignOut}
-                    aria-label="Sair da conta"
-                  >
-                    <IconLogOut size={15} />
-                    <span>Sair</span>
+                    <span className={`profile-menu-chevron ${profileMenuOpen ? 'is-open' : ''}`}>
+                      <IconChevronDown size={14} />
+                    </span>
                   </button>
+
+                  {profileMenuOpen && (
+                    <div
+                      id="profile-dropdown-menu"
+                      role="menu"
+                      aria-label="Opções do perfil"
+                      className="profile-dropdown"
+                    >
+                      <button
+                        type="button"
+                        role="menuitem"
+                        className="profile-menu-item"
+                        onClick={handleOpenMyReviews}
+                      >
+                        <span className="profile-menu-item-main">
+                          <IconStar size={15} />
+                          <span>Minhas avaliações</span>
+                        </span>
+                        <span
+                          className="menu-count-badge"
+                          aria-label={`${userReviewsList.length} avaliações`}
+                        >
+                          {userReviewsList.length}
+                        </span>
+                      </button>
+
+                      <button
+                        type="button"
+                        role="menuitem"
+                        className="profile-menu-item is-disabled"
+                        aria-disabled="true"
+                        tabIndex={-1}
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <span className="profile-menu-item-main">
+                          <IconUser size={15} />
+                          <span>Minha conta</span>
+                        </span>
+                        <span className="menu-soon-badge">Em breve</span>
+                      </button>
+
+                      <div className="profile-menu-divider" role="separator" />
+
+                      <button
+                        type="button"
+                        role="menuitem"
+                        className="profile-menu-item is-danger"
+                        onClick={handleSignOut}
+                      >
+                        <span className="profile-menu-item-main">
+                          <IconLogOut size={15} />
+                          <span>Sair</span>
+                        </span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <button
@@ -905,6 +1046,22 @@ export default function App() {
       )}
 
       {cityModalOpen && <CityModal onClose={() => setCityModalOpen(false)} />}
+
+      {myReviewsOpen && user && (
+        <MyReviewsModal
+          reviews={userReviewsList}
+          allPlacesById={allPlacesById}
+          hasChildModalOpen={Boolean(ratingTargetPlace || detailPlaceId)}
+          onClose={handleCloseMyReviews}
+          onViewPlace={(placeId) => {
+            setMyReviewsOpen(false);
+            handleOpenDetail(placeId);
+          }}
+          onEditReview={(place) => handleOpenRatingModal(place)}
+          onDeleteReview={handleDeleteReview}
+          onGoExplore={() => switchTab('explorar')}
+        />
+      )}
 
       {authModal.open && (
         <AuthModal

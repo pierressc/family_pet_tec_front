@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { isDefaultFavoritesList } from '../utils/helpers';
 import { IconCheck, IconClose, IconPlus } from './Icons';
 
 export default function SaveToListModal({
@@ -109,7 +110,12 @@ export default function SaveToListModal({
                       disabled={busy}
                       onChange={() => handleToggle(list.id)}
                     />
-                    <span className="save-list-name">{list.nome}</span>
+                    <span className="save-list-name">
+                      <span>{list.nome}</span>
+                      {isDefaultFavoritesList(list) && (
+                        <span className="list-default-badge">Padrão</span>
+                      )}
+                    </span>
                     <span className="save-list-count">
                       {checked && <IconCheck size={14} />}
                       {list.locaisIds.length} {list.locaisIds.length === 1 ? 'local' : 'locais'}
